@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sandbox · Abandoned School · NishiBishi</title>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NishiBishi</a>
+  <a class="back" href="../index.html#art">← Back</a>
+</nav>
+
+<header class="hero-p" style="background-image: url('../assets/sandbox-abandoned-school/03.jpg');">
+  <div class="hp-inner">
+    <div class="kicker">Art &amp; Studies · Environment Sandbox</div>
+    <h1>Abandoned School</h1>
+    <p class="hp-sub">A long-running Unreal Engine 5 sandbox: an abandoned school where
+       every new technique gets tested, kept and improved. Day and night lighting,
+       randomized props, interactive systems, and full technical breakdowns.</p>
+    <div class="meta">2024 · Unreal Engine 5 · Environment · Ongoing</div>
+  </div>
+</header>
+
+<div class="subnav">
+  <a href="#about">About</a>
+  <a href="#systems">Systems</a>
+  <a href="#tech">Tech breakdown</a>
+  <a href="#next">Challenges</a>
+  <a href="#renders">Renders</a>
+</div>
+
+<main class="page page-wide">
+
+  <!-- ============ ABOUT ============ -->
+  <section class="sec" id="about">
+    <div class="sec-kicker">Purpose</div>
+    <h2>A Sandbox With A Direction</h2>
+    <p class="sec-desc">For this project there is no specific goal or conclusion: it
+       should be seen as a sandbox to practice my skills and learning. But if there
+       were to be an objective, I am aiming for a video game in a survival-zombie
+       genre (probably), and all my work revolves around this theme. The practices
+       present in the project so far:</p>
+    <div class="chips" style="justify-content: flex-start;">
+      <span class="chip">Texel density &amp; scale work</span>
+      <span class="chip">Meshes from scratch</span>
+      <span class="chip">Randomize tooling</span>
+      <span class="chip">Vertex paint</span>
+      <span class="chip">Blueprint Interface</span>
+      <span class="chip">Thinking optimized</span>
+    </div>
+  </section>
+
+  <!-- ============ SYSTEMS ============ -->
+  <section class="sec" id="systems">
+    <div class="sec-kicker">Blueprint-driven</div>
+    <h2>Systems</h2>
+    <p class="sec-desc">Each system runs in realtime and is built to make the environment
+       variable: no two visits to the school look exactly the same.</p>
+  </section>
+
+  <div class="feature">
+    <div class="f-text">
+      <div class="f-kicker">System 01</div>
+      <h3 class="f-title">Randomized Ceilings</h3>
+      <p class="f-desc">Ceiling tiles are placed, rotated and dropped procedurally:
+         intact, hanging or fallen. One click regenerates the whole ceiling state
+         of the corridor.</p>
+      <details class="bp">
+        <summary>Blueprint breakdown</summary>
+        <video controls preload="metadata" src="../assets/sandbox-abandoned-school/vid-02.mp4"></video>
+      </details>
+    </div>
+    <div class="f-media">
+      <video class="loop" muted loop playsinline preload="metadata" src="../assets/sandbox-abandoned-school/vid-01.mp4"></video>
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-text">
+      <div class="f-kicker">System 02</div>
+      <h3 class="f-title">Light Tool</h3>
+      <p class="f-desc">The lights cast visible rays, and the tool sets each light up
+         with or without its physics constraint, depending on whether there is a
+         ceiling above it or not.</p>
+    </div>
+    <div class="f-media">
+      <video class="loop" muted loop playsinline preload="metadata" src="../assets/sandbox-abandoned-school/vid-03.mp4"></video>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="f-text">
+      <div class="f-kicker">System 03</div>
+      <h3 class="f-title">Randomized Lockers</h3>
+      <p class="f-desc">Each locker is assigned a state, open or closed, at every
+         launch. When open, the rotation angle of the door is randomized, and so are
+         the elements inside the locker.</p>
+      <details class="bp">
+        <summary>Blueprint breakdown + states</summary>
+        <div class="bp-duo">
+          <img src="../assets/sandbox-abandoned-school/08.jpg" alt="Locker states 1" loading="lazy">
+          <img src="../assets/sandbox-abandoned-school/09.jpg" alt="Locker states 2" loading="lazy">
+        </div>
+        <video controls preload="metadata" src="../assets/sandbox-abandoned-school/vid-05.mp4"></video>
+      </details>
+    </div>
+    <div class="f-media">
+      <video class="loop" muted loop playsinline preload="metadata" src="../assets/sandbox-abandoned-school/vid-04.mp4"></video>
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-text">
+      <div class="f-kicker">System 04</div>
+      <h3 class="f-title">Door + Interaction Widget</h3>
+      <p class="f-desc">A door driven by a line trace and a widget; this one was more
+         of a personal desire. From what I have learned, I refrain from Blueprint
+         casting in anything included in the project's build: editor-only tools can
+         cast, but otherwise I primarily work with Blueprint Interface to communicate
+         only the necessary information.</p>
+      <details class="bp">
+        <summary>Blueprint breakdown</summary>
+        <video controls preload="metadata" src="../assets/sandbox-abandoned-school/vid-07.mp4"></video>
+      </details>
+    </div>
+    <div class="f-media">
+      <video class="loop" muted loop playsinline preload="metadata" src="../assets/sandbox-abandoned-school/vid-06.mp4"></video>
+    </div>
+  </div>
+
+  <!-- ============ TECH ============ -->
+  <section class="sec" id="tech">
+    <div class="sec-kicker">Under the hood</div>
+    <h2>Tech Breakdown</h2>
+    <p class="sec-desc">The same scene through the engine's eyes: lighting isolation,
+       Lumen, Nanite and performance passes. Click any pass to inspect it.</p>
+    <div class="tech-grid">
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/12.jpg" alt="Lighting only pass" loading="lazy"><figcaption>Lighting only</figcaption></figure>
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/13.jpg" alt="Detail lighting pass" loading="lazy"><figcaption>Detail lighting</figcaption></figure>
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/14.jpg" alt="Lumen scene" loading="lazy"><figcaption>Lumen</figcaption></figure>
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/15.jpg" alt="Nanite view" loading="lazy"><figcaption>Nanite</figcaption></figure>
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/16.jpg" alt="World normal buffer" loading="lazy"><figcaption>Buffer · World normal</figcaption></figure>
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/17.jpg" alt="Quad overdraw" loading="lazy"><figcaption>Quad overdraw</figcaption></figure>
+      <figure class="tile"><img src="../assets/sandbox-abandoned-school/18.jpg" alt="Shader complexity" loading="lazy"><figcaption>Shader complexity</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ CHALLENGES ============ -->
+  <section class="sec" id="next">
+    <div class="sec-kicker">Ongoing</div>
+    <h2>Current Challenges</h2>
+    <p class="sec-desc">I am starting to have a lot of actors in the scene, because the
+       environment is much larger than this classroom. I am currently merging actors
+       such as the ceiling Blueprints into a single one per building: instead of
+       ticking 500 ceilings, I would only tick one for the same result. The Packed
+       Level Actor is not an option from what I have tried, because it skips the
+       functions inside, so there is no randomization. I am leaning towards creating
+       an editor tool with Blueprint Utilities.</p>
+  </section>
+
+  <!-- ============ RENDERS (payoff, en fin de page) ============ -->
+  <section class="sec" id="renders">
+    <div class="sec-kicker">Payoff</div>
+    <h2>Final Renders</h2>
+    <p class="sec-desc">Captured in realtime in Unreal Engine 5, in the two moods the
+       sandbox currently supports.</p>
+    <div class="duo">
+      <figure>
+        <img src="../assets/sandbox-abandoned-school/04.jpg" alt="Realtime render, day" loading="lazy">
+        <figcaption>Realtime · Render 02</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/sandbox-abandoned-school/05.jpg" alt="Realtime render, night" loading="lazy">
+        <figcaption>Realtime · Render 03</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <figure class="bleed" style="margin-top:3rem;">
+    <img src="../assets/sandbox-abandoned-school/11.jpg" alt="Full environment render" loading="lazy">
+    <figcaption>Render · Environment</figcaption>
+  </figure>
+
+  <a class="next-nav" href="unit-industrial-warfare.html" style="--nn-bg: url('../assets/as-rts.jpg');">
+    <span class="nn-kicker">Next project</span>
+    <span class="nn-title">Unit · Industrial Warfare (RTS) →</span>
+  </a>
+
+</main>
+
+<div class="lightbox hidden" id="lightbox"><img src="" alt=""></div>
+
+<footer>
+  Originally posted on <a href="https://www.artstation.com/artwork/AldLDz" target="_blank" rel="noopener">ArtStation ↗</a> · © 2026 NishiBishi
+</footer>
+
+<script src="../site.js"></script>
+</body>
+</html>

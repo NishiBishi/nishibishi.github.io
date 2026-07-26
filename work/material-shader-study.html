@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Material &amp; Shader Study · Stellar Blade · NishiBishi</title>
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">NishiBishi</a>
+  <a class="back" href="../index.html#art">← Back</a>
+</nav>
+
+<header class="hero-p" style="background-image: url('../assets/material-shader-study/01.webp');">
+  <div class="hp-inner">
+    <div class="kicker">Art &amp; Studies · Stellar Blade</div>
+    <h1>Material &amp; Shader Study</h1>
+    <p class="hp-sub">This project, initially based on an approach to modding the game,
+       turned into a study on materials and shaders. The model is the official Eve
+       from Stellar Blade, developed by Shift Up; everything else is rebuilt and
+       interpreted in Unreal Engine.</p>
+    <div class="meta">2025 · Unreal Engine · Shaders · Ongoing study</div>
+  </div>
+</header>
+
+<div class="subnav">
+  <a href="#master">Master materials</a>
+  <a href="#layers">Material layers</a>
+  <a href="#perf">Performance</a>
+  <a href="#next">What's next</a>
+  <a href="#renders">Renders</a>
+</div>
+
+<main class="page page-wide">
+
+  <div class="feature" id="master">
+    <div class="f-text">
+      <div class="f-kicker">Part 01 · Master materials</div>
+      <h3 class="f-title">One Master, Many Instances</h3>
+      <p class="f-desc">Through this study I have been able to deepen my knowledge of
+         master materials, with the intention of using them in specific situations.
+         This allowed me to expose more parameters for better control over the
+         in-game rendering.</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/04.webp" alt="Master material graph in Unreal Engine" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-text">
+      <div class="f-kicker">Part 02 · Organization</div>
+      <h3 class="f-title">Instances Built To Be Used</h3>
+      <p class="f-desc">On the master material, I make sure to group the nodes and
+         number them in the desired order, so that in the material instance everything
+         is well organized in terms of parameters. Pleasant to use for me, or for
+         anyone else who comes to work on it. Very easy to use, so very easy to adapt
+         as needed.</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/05.webp" alt="Organized material instance parameters" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature" id="layers">
+    <div class="f-text">
+      <div class="f-kicker">Part 03 · Material layers</div>
+      <h3 class="f-title">Discovering Material Layers</h3>
+      <p class="f-desc">I was able to discover new approaches, such as the
+         implementation of material layers. The master material is ready to receive
+         the layers, and any more general finishes can be handled at this level.</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/06.webp" alt="Master material ready for material layers" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-text">
+      <div class="f-kicker">Part 04 · Layered instances</div>
+      <h3 class="f-title">Layers, Blends &amp; Masks</h3>
+      <p class="f-desc">In the instance, the material layers tab has its own master and
+         instanced versions as well: it is all a question of optimization. I used
+         material layer blends to add an HDRI, or details such as fiber in certain
+         places, with mask maps and the right RGBA channel driving each
+         modification.</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/07.webp" alt="Material layers, blends and masks in the instance" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature" id="perf">
+    <div class="f-text">
+      <div class="f-kicker">Part 05 · Shader complexity</div>
+      <h3 class="f-title">Power, With Restraint</h3>
+      <p class="f-desc">Material layers allow some really cool things, but we need to
+         be careful about who and what we use them on. On the player character it does
+         not matter too much if it is a little heavy; on an enemy or an object that
+         appears multiple times on screen, it can cause problems.</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/08.webp" alt="Shader complexity view of the character" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature flip" id="next">
+    <div class="f-text">
+      <div class="f-kicker">Part 06 · What's next</div>
+      <h3 class="f-title">Still To Discover</h3>
+      <p class="f-desc">I still have things to discover, such as the transparent part
+         at the back of the character, and new systems for skin and eye materials.
+         Using a tutorial by Kimoon Jang, Technical Artist on Coloso, I will review
+         the process of rendering a frame in Unreal once again and learn more about
+         shaders.</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/09.webp" alt="Next steps and Kimoon Jang tutorial reference" loading="lazy">
+    </div>
+  </div>
+
+  <!-- ============ RENDERS (payoff, en fin de page) ============ -->
+  <section class="sec" id="renders">
+    <div class="sec-kicker">Payoff</div>
+    <h2>Final Render</h2>
+    <p class="sec-desc">Eve re-shaded from scratch in Unreal Engine, working from the
+       game's textures with very little public information to lean on.</p>
+  </section>
+
+  <figure class="bleed" style="margin-top:2rem;">
+    <img src="../assets/material-shader-study/02.webp" alt="Eve render, materials rebuilt in Unreal Engine" loading="lazy">
+  </figure>
+
+  <a class="next-nav" href="mabos-monster-process.html" style="--nn-bg: url('../assets/as-monster.jpg');">
+    <span class="nn-kicker">Next project</span>
+    <span class="nn-title">Mabo's Monster Process →</span>
+  </a>
+
+</main>
+
+<footer>
+  Originally posted on <a href="https://www.artstation.com/artwork/Nq3nk5" target="_blank" rel="noopener">ArtStation ↗</a> · © 2026 NishiBishi
+</footer>
+
+<script src="../site.js"></script>
+</body>
+</html>

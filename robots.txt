@@ -1,0 +1,6 @@
+# Le crawl est AUTORISE volontairement.
+# Le blocage se fait par <meta name="robots" content="noindex"> dans chaque page HTML.
+# Piege a ne pas reproduire : un "Disallow: /" empecherait les robots de LIRE le noindex,
+# et l'URL pourrait malgre tout apparaitre dans les resultats si un tiers la relaie.
+User-agent: *
+Allow: /

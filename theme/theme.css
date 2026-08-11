@@ -201,6 +201,7 @@ a.card:hover { text-decoration: none; }
 .t-canyon  { background: linear-gradient(160deg, #241408 0%, #6b3a1e 60%, var(--accent-2) 130%); } /* PLACEHOLDER */
 .t-rika    { background: linear-gradient(135deg, #0f1f1c 0%, #14453c 60%, var(--accent) 140%); } /* PLACEHOLDER */
 .t-corridor{ background: linear-gradient(135deg, #14141c 0%, #2e3140 60%, #7a8296 130%); } /* PLACEHOLDER */
+.t-metahuman{ background: linear-gradient(135deg, #14100e 0%, #43302a 60%, var(--accent-2) 150%); } /* PLACEHOLDER */
 .card .body { padding: 1.3rem 1.4rem 1.5rem; }
 .card h3 { font-size: 1.15rem; letter-spacing: .02em; margin-bottom: .4rem; }
 .card p  { color: var(--ink-dim); font-size: .92rem; }

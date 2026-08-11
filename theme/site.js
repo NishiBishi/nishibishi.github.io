@@ -1,18 +1,58 @@
-// Comportements partagés des pages projet (league layout).
+// site.js — comportements partagés du site. Chaque bloc est GARDÉ par la présence
+// de son point de montage : une page sans l'élément concerné n'exécute rien.
+// (La DA vit dans tokens.css ; les styles dans theme.css ; le panneau ⚙ dans devpanel.js.)
+
+// Apparition des cartes au scroll (accueil : .card)
+(function () {
+  const cards = document.querySelectorAll('.card');
+  if (!cards.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  cards.forEach(c => io.observe(c));
+})();
+
+// Diaporama du hero (accueil) : fondu au noir entre chaque visuel, en boucle.
+// La LISTE des visuels est une donnée de page : window.HERO_SLIDES, déclarée dans index.html.
+(function () {
+  const box = document.getElementById('heroSlides');
+  if (!box || !Array.isArray(window.HERO_SLIDES)) return;
+  const imgs = window.HERO_SLIDES.map(src => {
+    const img = document.createElement('img');
+    img.src = src; img.alt = '';
+    box.appendChild(img);
+    return img;
+  });
+  let i = 0;
+  imgs[0].classList.add('on');
+  // mouvement réduit demandé par l'OS → image fixe, pas de cycle
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const HOLD = 5200;   // durée d'affichage d'une image
+  const FADE = 1350;   // durée du fondu au noir (≥ transition CSS)
+  setInterval(() => {
+    imgs[i].classList.remove('on');            // fondu vers le noir...
+    i = (i + 1) % imgs.length;
+    setTimeout(() => imgs[i].classList.add('on'), FADE);  // ...puis la suivante émerge
+  }, HOLD + FADE);
+})();
 
 // Clips en boucle : ne tournent que quand ils sont visibles à l'écran
-const loops = document.querySelectorAll('video.loop');
-if (loops.length) {
+(function () {
+  const loops = document.querySelectorAll('video.loop');
+  if (!loops.length) return;
   const vio = new IntersectionObserver(entries => {
     entries.forEach(e => { e.isIntersecting ? e.target.play() : e.target.pause(); });
   }, { threshold: 0.35 });
   loops.forEach(v => vio.observe(v));
-}
+})();
 
 // Lightbox universelle : un clic sur n'importe quelle image ou clip la met en grand
 (function () {
   // retire d'éventuelles lightbox codées en dur dans le HTML (versions précédentes)
   document.querySelectorAll('.lightbox').forEach(el => el.remove());
+
+  const media = document.querySelectorAll('main img, main video.loop');
+  if (!media.length) return;
 
   const overlay = document.createElement('div');
   overlay.className = 'lightbox hidden';
@@ -59,6 +99,7 @@ if (loops.length) {
 
 // Sélecteur « More projects » : remplace la carte next unique par un carrousel
 // de toutes les AUTRES fiches (miniature + titre), défilable. Source unique ici.
+// AJOUTER UN PROJET = une ligne dans PROJECTS (cf. docs/GUIDE_POSTS.md).
 (function () {
   const PROJECTS = [
     { slug: 'material-shader-study', title: 'Material & Shader Study', tag: 'Stellar Blade', thumb: 'as-shader.jpg' },

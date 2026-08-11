@@ -1,0 +1,46 @@
+/* ============================================================================
+   tokens.css — LA DA. Source unique de vérité du design system.
+   ----------------------------------------------------------------------------
+   C'est LE fichier qu'on touche pour re-thémer (couleurs, typo, échelles).
+   Personne d'autre n'a le droit de porter une couleur : theme.css n'utilise
+   QUE ces variables (vérifié par grep — voir docs/refacto_tokens_map.md).
+   Réglage live : dev panel ⚙ sur n'importe quelle page → « Copier CSS » → coller ici.
+   Doc complète : docs/THEME.md
+   ============================================================================ */
+:root {
+
+  /* --- PALETTE ------------------------------------------------------------ */
+  --bg:         #0a0a0f;   /* fond du site (nuit bleutée) */
+  --bg-panel:   #12121a;   /* fond des cartes / panneaux */
+  --void:       #050508;   /* noir profond des voiles (lightbox, dégradés de cartes) */
+  --media-fill: #000;      /* fond derrière les médias letterboxés */
+  --ink:        #e8e8ef;   /* texte principal */
+  --ink-dim:    #8a8a9a;   /* texte secondaire */
+  --ink-faint:  #55556a;   /* texte tertiaire (footer, hints) */
+  --accent:     #5ee6d0;   /* néon principal — ice-cyan */
+  --accent-2:   #e6a35e;   /* accent chaud — ambre */
+
+  /* --- LIGNES (bordures), du plus sombre au plus clair -------------------- */
+  --line:         #16161f; /* structure : nav, footer */
+  --line-media:   #1d1d28; /* cadres des médias, cartes */
+  --line-panel:   #22222f; /* panneaux, blocs feature */
+  --line-control: #2a2a3a; /* boutons, inputs, scrollbars */
+  --line-bright:  #33333f; /* contrôles mis en avant (× lightbox, ghost) */
+
+  /* --- TYPO --------------------------------------------------------------- */
+  --font-ui:    "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono:  Consolas, "Cascadia Mono", monospace;
+  --fs-hero:    clamp(2.2rem, 8vw, 6.5rem);   /* H1 accueil */
+  --fs-hero-p:  clamp(2.2rem, 6.5vw, 4.6rem); /* H1 pages projet */
+  --fs-h2:      clamp(1.6rem, 4vw, 2.6rem);   /* H2 de section */
+  --fs-f-title: clamp(1.4rem, 3vw, 2rem);     /* titres des blocs feature */
+  --h1-track:   .06em;     /* interlettrage du H1 accueil */
+  --track-kicker: .4em;    /* interlettrage des kickers */
+
+  /* --- LAYOUT & EFFETS ---------------------------------------------------- */
+  --card-r:     14px;      /* rayon des cartes */
+  --maxw:       1100px;    /* largeur de colonne — accueil */
+  --maxw-wide:  1150px;    /* largeur de colonne — pages projet */
+  --maxw-read:  900px;     /* largeur de lecture (.page) */
+  --grid-op:    .025;      /* opacité du damier de fond */
+}

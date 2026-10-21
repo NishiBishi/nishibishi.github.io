@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rebuilding Eidos 7 · Stellar Blade · Steven</title>
+<link rel="stylesheet" href="../theme/tokens.css">
+<link rel="stylesheet" href="../theme/theme.css">
+</head>
+<body>
+
+<nav class="nav-page">
+  <a class="logo" href="../index.html">Steven</a>
+  <a class="back" href="../index.html#art">← Back</a>
+</nav>
+
+<header class="hero-p" style="background-image: url('../assets/stellar-blade-eidos-port/cover.webp');">
+  <div class="hp-inner">
+    <div class="kicker">Art &amp; Studies · Stellar Blade</div>
+    <h1>Rebuilding Eidos 7</h1>
+    <p class="hp-sub">A personal, non-commercial study: rebuilding the Eidos 7 area of
+       Stellar Blade in Unreal Engine 5.8 from the game's own data (level, materials,
+       Eve, combat and the opening cinematic) and checking each piece against the
+       original game. Eve, Eidos 7 and every game asset belong to Shift Up.</p>
+    <div class="meta">2026 · Unreal Engine 5.8 · Work in progress</div>
+  </div>
+</header>
+
+<div class="subnav">
+  <a href="#start">Origins</a>
+  <a href="#world">World</a>
+  <a href="#eve">Eve</a>
+  <a href="#intro">Cinematic</a>
+  <a href="#compare">Side by side</a>
+</div>
+
+<main class="page page-wide">
+
+  <div class="feature" id="start">
+    <div class="f-text">
+      <div class="f-kicker">Step 01 · 2025</div>
+      <h3 class="f-title">From a Shader Study to a Port</h3>
+      <p class="f-desc">This project grew out of my
+         <a href="material-shader-study.html">material and shader study on Eve</a>.
+         Rebuilding her materials showed me how much of the game's look lives in its
+         data, which raised the next question: could the whole Eidos 7 area be rebuilt,
+         piece by piece, in a modern engine?</p>
+    </div>
+    <div class="f-media">
+      <img src="../assets/material-shader-study/02.webp" alt="Eve re-shaded in Unreal Engine during the earlier material study" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-text">
+      <div class="f-kicker">Step 02 · July 2026</div>
+      <h3 class="f-title">Placing the Level by Script</h3>
+      <p class="f-desc">I set up a UE 5.8 project, extracted the area's placement data,
+         meshes and textures from the game, then imported and placed everything by
+         script rather than by hand: 6,126 of 6,143 static meshes and 48,972 foliage
+         instances for the first area. This early editor capture shows the starting
+         point, with the landing ship still untextured.</p>
+      <div class="chips">
+        <span class="chip">UE 5.8</span><span class="chip">CUE4Parse</span>
+        <span class="chip">glTF</span><span class="chip">Python</span>
+      </div>
+    </div>
+    <div class="f-media">
+      <img src="../assets/stellar-blade-eidos-port/01.webp" alt="Early editor capture: Eidos 7 street with the landing ship still untextured" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature" id="world">
+    <div class="f-text">
+      <div class="f-kicker">Step 03 · September 2026</div>
+      <h3 class="f-title">Matching the Game, Not Guessing</h3>
+      <p class="f-desc">I built UE 5.8.2 from source and audited the July import
+         against the game's files. The audit caught real gaps: 1,365 components blocked
+         Eve where the game declares no collision, and foliage drifted by up to 2.5 cm.
+         The main map was rebuilt from the source data, then ocean, waterfalls, fog,
+         rain and lights came back one pass at a time.</p>
+      <div class="chips">
+        <span class="chip">Lumen</span><span class="chip">Nanite</span>
+        <span class="chip">Virtual Shadow Maps</span><span class="chip">Material instances</span>
+      </div>
+    </div>
+    <div class="f-media">
+      <img src="../assets/stellar-blade-eidos-port/02.webp" alt="Eidos 7 alley in the UE 5.8 port, ferns and light shafts in the mist" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature flip" id="eve">
+    <div class="f-text">
+      <div class="f-kicker">Step 04 · September – October 2026</div>
+      <h3 class="f-title">Eve, Playable Against the Antlions</h3>
+      <p class="f-desc">Eve runs on C++ gameplay modules: locomotion blended at the
+         game's own speeds, Light and Strong combos, guard and parry, and the area's
+         three Antlions with their spawn effects. Combat feedback followed: sparks,
+         blood, a 0.07 s hit-stop, the HP and shield HUD, lock-on targeting and the
+         switch between exploration and combat music.</p>
+      <div class="chips">
+        <span class="chip">C++</span><span class="chip">Animation Blueprint</span>
+        <span class="chip">Niagara</span><span class="chip">UMG</span><span class="chip">Audio</span>
+      </div>
+    </div>
+    <div class="f-media">
+      <img src="../assets/stellar-blade-eidos-port/03.webp" alt="Eve landing a critical hit on an Antlion in the Eidos 7 street, with the ported HUD" loading="lazy">
+    </div>
+  </div>
+
+  <div class="feature" id="intro">
+    <div class="f-text">
+      <div class="f-kicker">Step 05 · October 2026</div>
+      <h3 class="f-title">The Opening Cinematic, Shot by Shot</h3>
+      <p class="f-desc">I rebuilt the opening sequence from the game's own sequence
+         data (1,388 tracks) instead of re-animating it: the 5,560 keys of the first
+         converted part match the game bit for bit, and the ship stays within 0.003 cm
+         of its original path. I then
+         filmed the original and compared both cut by cut; the 20 camera cuts line up
+         within 0.06 s. Top: original game. Bottom: my port.</p>
+      <div class="chips">
+        <span class="chip">Sequencer</span><span class="chip">Level Sequence</span>
+        <span class="chip">Bink</span><span class="chip">Depth of field</span>
+      </div>
+    </div>
+    <div class="f-media">
+      <div class="m2">
+        <img src="../assets/stellar-blade-eidos-port/04-original.webp" alt="Original game: Eve's close-up in the ship cabin" loading="lazy">
+        <img src="../assets/stellar-blade-eidos-port/04-port.webp" alt="UE 5.8 port: the same close-up of Eve in the ship cabin" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <div class="feature flip">
+    <div class="f-text">
+      <div class="f-kicker">Step 06 · Debugging</div>
+      <h3 class="f-title">Bugs Found by Measuring</h3>
+      <p class="f-desc">Each visible difference got a measurement before a fix. Eve's
+         face vanished in two shots (top): the engine culled it with fixed bounds
+         because her physics asset was missing, and porting the game's asset brought it
+         back (bottom). Her feet floated 2 cm above the ground: the game sets her mesh
+         97 cm below the capsule, my port had 95.</p>
+      <details class="bp">
+        <summary>More fixes</summary>
+        <p class="f-desc">A shoulder twisted by 111°: one animation track had been
+           filled with the skeleton's reference pose instead of the mesh's. Black bars,
+           then a ×1.26 zoom in cinematics: two camera defaults of the game were not
+           ported, fixed on 30 cameras. Eve sliding while sprinting backwards in
+           lock-on: the sprint branch was not wired into the animation graph.</p>
+      </details>
+    </div>
+    <div class="f-media">
+      <div class="m2">
+        <img src="../assets/stellar-blade-eidos-port/05-before.webp" alt="Before: Eve's face culled in a cabin shot of the port" loading="lazy">
+        <img src="../assets/stellar-blade-eidos-port/05-after.webp" alt="After: Eve's face rendered once her physics asset was ported" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <section class="sec" id="method">
+    <div class="sec-kicker">Method</div>
+    <h2>Every Change Checked Against the Original</h2>
+    <p class="sec-desc">I run this port as the director of AI coding agents (Codex,
+       then Claude Code): they drive the Unreal editor through MCP and read the game's
+       native code in Ghidra, while I set the goals, film the original game as
+       reference and judge each result against it. Every visible change ships with an
+       original / before / after board like this one: the ship's thrusters during the
+       landing.</p>
+    <div class="step-media">
+      <img src="../assets/stellar-blade-eidos-port/06.webp" alt="Comparison board of the ship's thrusters: original game, port before, port after" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ============ PAYOFF (fin de page) ============ -->
+  <section class="sec" id="compare">
+    <div class="sec-kicker">Payoff</div>
+    <h2>Side by Side</h2>
+    <p class="sec-desc">The same frames of the opening cinematic, original game on the
+       left and my UE 5.8 port on the right. Still open: the flyover lighting, the
+       cabin glass, Eve's hair in close-ups and part of the effects are not matched
+       yet.</p>
+    <div class="duo">
+      <figure><img src="../assets/stellar-blade-eidos-port/07-original.webp" alt="Original game: Adam and Eve in the ship cabin" loading="lazy"><figcaption>Original · Cabin</figcaption></figure>
+      <figure><img src="../assets/stellar-blade-eidos-port/07-port.webp" alt="UE 5.8 port: Adam and Eve in the ship cabin" loading="lazy"><figcaption>UE 5.8 port · Cabin</figcaption></figure>
+    </div>
+    <div class="duo">
+      <figure><img src="../assets/stellar-blade-eidos-port/08-original.webp" alt="Original game: the statue courtyard of Eidos 7" loading="lazy"><figcaption>Original · Statue courtyard</figcaption></figure>
+      <figure><img src="../assets/stellar-blade-eidos-port/08-port.webp" alt="UE 5.8 port: the statue courtyard of Eidos 7" loading="lazy"><figcaption>UE 5.8 port · Statue courtyard</figcaption></figure>
+    </div>
+  </section>
+
+  <figure class="bleed" style="margin-top:2rem;">
+    <img src="../assets/stellar-blade-eidos-port/09.webp" alt="Eve walking down an Eidos 7 street in the UE 5.8 port" loading="lazy">
+    <figcaption>Eve in Eidos 7 · UE 5.8 port, October 2026</figcaption>
+  </figure>
+
+  <a class="next-nav" href="material-shader-study.html" style="--nn-bg: url('../assets/as-shader.jpg');">
+    <span class="nn-kicker">Next project</span>
+    <span class="nn-title">Material &amp; Shader Study · Stellar Blade →</span>
+  </a>
+
+</main>
+
+<footer>
+  Personal, non-commercial study · Stellar Blade, Eve and Eidos 7 © Shift Up · © 2026 Steven
+</footer>
+
+<script src="../theme/site.js"></script>
+<script src="../theme/devpanel.js"></script>
+</body>
+</html>

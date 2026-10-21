@@ -102,6 +102,9 @@
 // AJOUTER UN PROJET = une ligne dans PROJECTS (cf. docs/GUIDE_POSTS.md).
 (function () {
   const PROJECTS = [
+    // realistic-character : retiré du site le 21/10 (brouillon local, cf. docs/BROUILLONS.md) ;
+    // pas de miniature non plus → absent du carrousel « More projects ».
+    { slug: 'stellar-blade-eidos-port', title: 'Rebuilding Eidos 7', tag: 'Stellar Blade', thumb: 'as-stellar-blade-eidos-port.jpg' },
     { slug: 'material-shader-study', title: 'Material & Shader Study', tag: 'Stellar Blade', thumb: 'as-shader.jpg' },
     { slug: 'mabos-monster-process', title: "Mabo's Monster",          tag: 'Creature',      thumb: 'as-monster.jpg' },
     { slug: 'sandbox-abandoned-school', title: 'Abandoned School',      tag: 'Environment',   thumb: 'as-school.jpg' },

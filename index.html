@@ -7,7 +7,7 @@
      Retirer cette ligne (ici + dans work/*.html) le jour où on veut être indexé. -->
 <meta name="robots" content="noindex, nofollow">
 <title>Steven · Technical & Environment Artist</title>
-<meta name="description" content="Steven, technical artist building game systems and worlds in Unreal Engine. Procedural cities, ARPG endgame systems, environment storytelling.">
+<meta name="description" content="Steven, technical artist building game systems and worlds in Unreal Engine. ARPG endgame systems, character art, environment storytelling.">
 <!-- Design system : la DA vit dans theme/tokens.css, les composants dans theme/theme.css.
      Doc : docs/THEME.md — cette page ne porte plus AUCUN style. -->
 <link rel="stylesheet" href="theme/tokens.css">
@@ -18,8 +18,7 @@
 <nav class="nav-home">
   <div class="logo">Steven</div>
   <div class="links">
-    <a href="#work">Work</a>
-    <a href="#art">Art</a>
+    <a href="#art">Work</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
@@ -32,90 +31,28 @@
     <h1>Steven</h1>
     <p class="hero-sub">
       I build game systems and the worlds that hold them: from a full ARPG endgame
-      grown inside a AAA title to procedural ruined cities measured gate by gate.
+      grown inside a AAA title to environments that tell their story prop by prop.
     </p>
     <div class="hero-cta">
-      <a class="btn" href="#work">Selected Work</a>
+      <a class="btn" href="#art">View my work</a>
       <a class="btn ghost" href="#contact">Get in touch</a>
     </div>
   </div>
 </header>
-
-<section id="work">
-  <div class="inner">
-    <div class="section-title">Selected Work</div>
-    <div class="grid">
-
-      <div class="card">
-        <div class="thumb t-arpg"><span class="ph">capture à venir</span></div>
-        <div class="body">
-          <h3>Stellar Blade · ARPG Endgame Mod</h3>
-          <p>A PoE-style endgame loop built inside Stellar Blade: native contract missions,
-             procedural loot with rolled affixes, ground drops and recycling, all driven
-             by the game's own data systems.</p>
-          <div class="tags"><span class="tag">UE4</span><span class="tag">C++</span><span class="tag warm">Game Systems</span></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb t-city"><span class="ph">capture à venir</span></div>
-        <div class="body">
-          <h3>Procedural Ruined City</h3>
-          <p>A ~560&nbsp;m organic ruined metropolis generated in UE&nbsp;5.8, with district
-             legibility, playable cover layouts, and 1300+ instances orchestrated by
-             custom tooling.</p>
-          <div class="tags"><span class="tag">UE5</span><span class="tag">PCG</span><span class="tag warm">Environment</span></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb t-canyon"><span class="ph">capture à venir</span></div>
-        <div class="body">
-          <h3>Canyon Approach</h3>
-          <p>An approach canyon designed like a level artist and verified like an engineer:
-             line-of-sight coverage, threshold lighting, silhouette storytelling, every
-             gate proven with numbers.</p>
-          <div class="tags"><span class="tag">UE5</span><span class="tag">Level Art</span><span class="tag warm">Lighting</span></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb t-rika"><span class="ph">capture à venir</span></div>
-        <div class="body">
-          <h3>Rika · Living Knowledge Brain</h3>
-          <p>An agentic second brain that watches a project's notes, links its knowledge
-             into a 3D graph, and improves its own code under a sacred verifier, with a
-             local inner voice.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Agents</span><span class="tag warm">Tooling</span></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="thumb t-corridor"><span class="ph">capture à venir</span></div>
-        <div class="body">
-          <h3>School Corridor · Post-Apo <span class="wip">In production</span></h3>
-          <p>One corridor, one mood: an environment storytelling piece set in an overrun
-             school: composition, hand-placed lighting, and props that tell the story.</p>
-          <div class="tags"><span class="tag">UE5</span><span class="tag warm">Environment Art</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <section id="art">
   <div class="inner">
     <div class="section-title">Art &amp; Studies</div>
     <div class="grid">
 
-      <a class="card" href="work/custom-metahuman.html">
-        <div class="thumb t-metahuman"><span class="ph">View project</span></div>
+      <a class="card" href="work/stellar-blade-eidos-port.html">
+        <div class="thumb"><img src="assets/as-stellar-blade-eidos-port.jpg" alt="Eve walking down an Eidos 7 street in the Unreal Engine 5.8 port"><span class="ph">View project</span></div>
         <div class="body">
-          <h3>Custom MetaHuman <span class="wip">In production</span></h3>
-          <p>A game-ready custom MetaHuman built step by step (Coloso course by
-             LouLL_AroLL): the survivor made to inhabit the post-apo school corridor.</p>
-          <div class="tags"><span class="tag">UE5</span><span class="tag">Character</span><span class="tag warm">MetaHuman</span></div>
+          <h3>Rebuilding Eidos 7 · Stellar Blade <span class="wip">In progress</span></h3>
+          <p>The Eidos 7 area of Stellar Blade rebuilt in Unreal Engine 5.8 from the
+             game's own data: level, Eve, combat and the opening cinematic, each piece
+             checked against the original.</p>
+          <div class="tags"><span class="tag">UE 5.8</span><span class="tag">Tech Art</span><span class="tag warm">Port</span></div>
         </div>
       </a>
 
@@ -208,6 +145,7 @@
 <script>
   // Donnée de page : les visuels du diaporama du hero (le comportement vit dans theme/site.js)
   window.HERO_SLIDES = [
+    'assets/stellar-blade-eidos-port/cover.webp',
     'assets/material-shader-study/01.webp',
     'assets/mabos-monster-process/01.jpg',
     'assets/sandbox-abandoned-school/03.jpg',

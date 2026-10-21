@@ -91,10 +91,11 @@
     body.appendChild(row);
   });
 
-  // Outil d'auteur : en ligne, le bouton ⚙ est masqué et rien ne s'ouvre tout seul.
-  // La touche ² / ` continue de marcher partout.
+  // Outil d'auteur : en ligne, ni bouton ⚙ ni touche ² (un visiteur AZERTY la presse par hasard,
+  // Steven 21/10/2026). Pour régler depuis le site public : ajouter ?dev à l'adresse.
   const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(location.hostname);
-  if (!IS_LOCAL) toggleBtn.style.display = 'none';
+  const DEV_ON = IS_LOCAL || new URLSearchParams(location.search).has('dev');
+  if (!DEV_ON) toggleBtn.style.display = 'none';
 
   // Ouvre le panneau à la toute première visite — en local ET sur l'accueil seulement
   // (sur les pages projet il ne s'impose pas, il se convoque au clavier)
@@ -110,7 +111,7 @@
   toggleBtn.addEventListener('click', toggle);
   panel.querySelector('#dpClose').addEventListener('click', toggle);
   document.addEventListener('keydown', e => {
-    if (e.target.tagName === 'INPUT') return;
+    if (!DEV_ON || e.target.tagName === 'INPUT') return;
     if (e.key === '²' || e.key === '`') toggle();
   });
 

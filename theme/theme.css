@@ -195,13 +195,8 @@ a.card:hover { text-decoration: none; }
   color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.2);
   padding: .15rem .5rem; border-radius: 2px;
 }
-/* vignettes provisoires « capture à venir » — à SUPPRIMER avec les vraies captures */
-.t-arpg    { background: linear-gradient(135deg, #1a0f2e 0%, #4a1e5c 55%, #c9583a 100%); } /* PLACEHOLDER */
-.t-city    { background: linear-gradient(135deg, #0e1a24 0%, #24425c 55%, var(--accent) 130%); } /* PLACEHOLDER */
-.t-canyon  { background: linear-gradient(160deg, #241408 0%, #6b3a1e 60%, var(--accent-2) 130%); } /* PLACEHOLDER */
-.t-rika    { background: linear-gradient(135deg, #0f1f1c 0%, #14453c 60%, var(--accent) 140%); } /* PLACEHOLDER */
-.t-corridor{ background: linear-gradient(135deg, #14141c 0%, #2e3140 60%, #7a8296 130%); } /* PLACEHOLDER */
-.t-metahuman{ background: linear-gradient(135deg, #14100e 0%, #43302a 60%, var(--accent-2) 150%); } /* PLACEHOLDER */
+/* vignette provisoire du post character (pas de miniature pour l'instant — demande Steven 01/09) */
+.t-character{ background: linear-gradient(135deg, #14100e 0%, #43302a 60%, var(--accent-2) 150%); } /* PLACEHOLDER */
 .card .body { padding: 1.3rem 1.4rem 1.5rem; }
 .card h3 { font-size: 1.15rem; letter-spacing: .02em; margin-bottom: .4rem; }
 .card p  { color: var(--ink-dim); font-size: .92rem; }

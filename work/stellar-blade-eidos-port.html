@@ -21,11 +21,11 @@
     <div class="kicker"><span lang="en">Art &amp; Studies · Stellar Blade</span><span lang="fr">Art &amp; études · Stellar Blade</span></div>
     <h1><span lang="en">Rebuilding Eidos 7</span><span lang="fr">Reconstruire Eidos 7</span></h1>
     <p class="hp-sub"><span lang="en">A personal, non-commercial study: rebuilding the Eidos 7 area of
-       Stellar Blade in Unreal Engine 5.8 from the game's own data (level, materials,
+       Stellar Blade, an Unreal Engine 4.26 game, in Unreal Engine 5.8 from the game's own data (level, materials,
        Eve, combat and the opening cinematic) and checking each piece against the
        original game. Eve, Eidos 7 and every game asset belong to Shift Up.</span>
        <span lang="fr">Une étude personnelle et non commerciale&nbsp;: reconstruire la zone d'Eidos 7 de
-       Stellar Blade dans Unreal Engine 5.8 à partir des données du jeu lui-même (niveau, matériaux,
+       Stellar Blade, un jeu sous Unreal Engine 4.26, dans Unreal Engine 5.8 à partir des données du jeu lui-même (niveau, matériaux,
        Eve, combat et cinématique d'ouverture), en vérifiant chaque élément face au jeu original.
        Eve, Eidos 7 et tous les assets du jeu appartiennent à Shift Up.</span></p>
     <div class="meta"><span lang="en">2026 · Unreal Engine 5.8 · Work in progress</span><span lang="fr">2026 · Unreal Engine 5.8 · En cours</span></div>
@@ -94,13 +94,15 @@
          against the game's files. The audit caught real gaps: 1,365 components blocked
          Eve where the game declares no collision, and foliage drifted by up to 2.5 cm.
          The main map was rebuilt from the source data, then ocean, waterfalls, fog,
-         rain and lights came back one pass at a time.</span>
+         rain and lights came back one pass at a time. Lumen, which the UE 4.26 original
+         does not have, was kept and tuned to match the game's look.</span>
          <span lang="fr">J'ai compilé UE 5.8.2 depuis les sources et audité l'import de juillet par
          rapport aux fichiers du jeu. L'audit a relevé de vrais écarts&nbsp;: 1&nbsp;365 composants
          bloquaient Eve là où le jeu ne déclare aucune collision, et le foliage dérivait jusqu'à
          2,5&nbsp;cm. La carte principale a été reconstruite à partir des données sources, puis
          l'océan, les cascades, le brouillard, la pluie et les lumières sont revenus, une passe
-         après l'autre.</span></p>
+         après l'autre. Lumen, absent de l'original en UE&nbsp;4.26, a été gardé et réglé pour
+         retrouver le rendu du jeu.</span></p>
       <div class="chips">
         <span class="chip">Lumen</span><span class="chip">Nanite</span>
         <span class="chip">Virtual Shadow Maps</span><span class="chip">Material instances</span>

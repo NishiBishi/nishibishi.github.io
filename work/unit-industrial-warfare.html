@@ -4,106 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Unit · Industrial Warfare (RTS) · Steven</title>
+<title data-fr="Unité · Industrial Warfare (RTS) · Steven">Unit · Industrial Warfare (RTS) · Steven</title>
 <link rel="stylesheet" href="../theme/tokens.css">
 <link rel="stylesheet" href="../theme/theme.css">
+<script src="../theme/i18n.js"></script>
 </head>
 <body>
 
 <nav class="nav-page">
   <a class="logo" href="../index.html">Steven</a>
-  <a class="back" href="../index.html#art">← Back</a>
+  <a class="back" href="../index.html#art"><span lang="en">← Back</span><span lang="fr">← Retour</span></a>
 </nav>
 
 <header class="hero-p" style="background-image: url('../assets/unit-industrial-warfare/cover.jpg');">
   <div class="hp-inner">
-    <div class="kicker">Art &amp; Studies · Student Project</div>
-    <h1>Unit · Industrial Warfare</h1>
-    <p class="hp-sub">An RTS video game completed in two months by a team of 12
+    <div class="kicker"><span lang="en">Art &amp; Studies · Student Project</span><span lang="fr">Art &amp; études · Projet étudiant</span></div>
+    <h1><span lang="en">Unit · Industrial Warfare</span><span lang="fr">Unité · Industrial Warfare</span></h1>
+    <p class="hp-sub"><span lang="en">An RTS video game completed in two months by a team of 12
        (6 programmers, 5 graphic artists, 1 sound designer). I took the human unit
        from modeling all the way to functional in-game integration, and worked on
-       the robots as well.</p>
-    <div class="meta">2024 · Créajeux · Full character pipeline</div>
+       the robots as well.</span>
+       <span lang="fr">Un jeu vidéo de stratégie en temps réel (RTS) réalisé en deux mois par une équipe
+       de 12 (6 programmeurs, 5 graphistes, 1 sound designer). J'ai mené l'unité humaine de la
+       modélisation jusqu'à l'intégration fonctionnelle en jeu, et j'ai aussi travaillé sur les
+       robots.</span></p>
+    <div class="meta"><span lang="en">2024 · Créajeux · Full character pipeline</span><span lang="fr">2024 · Créajeux · Pipeline personnage complet</span></div>
   </div>
 </header>
 
 <div class="subnav">
-  <a href="#modeling">Modeling</a>
-  <a href="#retopo">Retopology</a>
+  <a href="#modeling"><span lang="en">Modeling</span><span lang="fr">Modélisation</span></a>
+  <a href="#retopo"><span lang="en">Retopology</span><span lang="fr">Retopologie</span></a>
   <a href="#texturing">Texturing</a>
   <a href="#rig">Rig</a>
   <a href="#animation">Animation</a>
-  <a href="#ingame">In-game</a>
-  <a href="#renders">Renders</a>
+  <a href="#ingame"><span lang="en">In-game</span><span lang="fr">En jeu</span></a>
+  <a href="#renders"><span lang="en">Renders</span><span lang="fr">Rendus</span></a>
 </div>
 
 <main class="page page-wide">
 
   <div class="feature" id="modeling">
     <div class="f-text">
-      <div class="f-kicker">Step 01 · ZBrush</div>
-      <h3 class="f-title">Modeling</h3>
-      <p class="f-desc">The modeling of this character is similar to my
+      <div class="f-kicker"><span lang="en">Step 01 · ZBrush</span><span lang="fr">Étape 01 · ZBrush</span></div>
+      <h3 class="f-title"><span lang="en">Modeling</span><span lang="fr">Modélisation</span></h3>
+      <p class="f-desc"><span lang="en">The modeling of this character is similar to my
          <a href="mabos-monster-process.html">Mabo's Monster</a> process. I began with
          an anatomy study in ZBrush, and for the armor I did a round trip between
-         ZBrush and Maya.</p>
+         ZBrush and Maya.</span>
+         <span lang="fr">La modélisation de ce personnage ressemble à mon process pour
+         <a href="mabos-monster-process.html">le monstre de Mabo</a>. J'ai commencé par une étude
+         d'anatomie dans ZBrush, et pour l'armure j'ai fait des allers-retours entre ZBrush et
+         Maya.</span></p>
     </div>
     <div class="f-media">
-      <img src="../assets/unit-industrial-warfare/01.jpg" alt="ZBrush modeling of the human unit" loading="lazy">
+      <img src="../assets/unit-industrial-warfare/01.jpg" alt="ZBrush modeling of the human unit" data-fr-alt="Modélisation de l'unité humaine dans ZBrush" loading="lazy">
     </div>
   </div>
 
   <div class="feature flip" id="retopo">
     <div class="f-text">
-      <div class="f-kicker">Step 02 · Maya</div>
-      <h3 class="f-title">Retopology</h3>
-      <p class="f-desc">After modeling in ZBrush, we aim for a low-poly count for two
+      <div class="f-kicker"><span lang="en">Step 02 · Maya</span><span lang="fr">Étape 02 · Maya</span></div>
+      <h3 class="f-title"><span lang="en">Retopology</span><span lang="fr">Retopologie</span></h3>
+      <p class="f-desc"><span lang="en">After modeling in ZBrush, we aim for a low-poly count for two
          reasons: efficiency, and visibility from a distance, since the unit is
-         designed for an RTS view and will appear multiple times on screen.</p>
+         designed for an RTS view and will appear multiple times on screen.</span>
+         <span lang="fr">Après la modélisation dans ZBrush, on vise un faible nombre de polygones pour deux
+         raisons&nbsp;: l'efficacité, et la lisibilité de loin, puisque l'unité est conçue pour une vue
+         RTS et apparaîtra plusieurs fois à l'écran.</span></p>
     </div>
     <div class="f-media">
-      <img src="../assets/unit-industrial-warfare/03.jpg" alt="Maya retopology of the unit" loading="lazy">
+      <img src="../assets/unit-industrial-warfare/03.jpg" alt="Maya retopology of the unit" data-fr-alt="Retopologie de l'unité dans Maya" loading="lazy">
     </div>
   </div>
 
   <div class="feature" id="texturing">
     <div class="f-text">
-      <div class="f-kicker">Step 03 · Substance Painter</div>
+      <div class="f-kicker"><span lang="en">Step 03 · Substance Painter</span><span lang="fr">Étape 03 · Substance Painter</span></div>
       <h3 class="f-title">Texturing</h3>
-      <p class="f-desc">The texture work is primarily done with maps, gradients, and a
+      <p class="f-desc"><span lang="en">The texture work is primarily done with maps, gradients, and a
          bit of hand-painting for finishing touches. As for the resolution: since the
          character appears small in an RTS view on a 1920×1080 screen, I chose a
          512×512 texture. This applies to each unit in the game, ensuring
-         optimization.</p>
+         optimization.</span>
+         <span lang="fr">Le travail de texture se fait surtout avec des maps, des dégradés et un peu de
+         peinture à la main pour les finitions. Pour la résolution&nbsp;: comme le personnage apparaît
+         petit en vue RTS sur un écran 1920×1080, j'ai choisi une texture de 512×512. C'est le cas
+         pour chaque unité du jeu, ce qui garantit l'optimisation.</span></p>
     </div>
     <div class="f-media">
-      <img src="../assets/unit-industrial-warfare/05.jpg" alt="Substance Painter texturing of the unit" loading="lazy">
+      <img src="../assets/unit-industrial-warfare/05.jpg" alt="Substance Painter texturing of the unit" data-fr-alt="Texturing de l'unité dans Substance Painter" loading="lazy">
     </div>
   </div>
 
   <div class="feature flip" id="rig">
     <div class="f-text">
-      <div class="f-kicker">Step 04 · Maya</div>
+      <div class="f-kicker"><span lang="en">Step 04 · Maya</span><span lang="fr">Étape 04 · Maya</span></div>
       <h3 class="f-title">Rig</h3>
-      <p class="f-desc">For the rigging, I aimed for a rig with the fewest bones
+      <p class="f-desc"><span lang="en">For the rigging, I aimed for a rig with the fewest bones
          possible to maximize in-game performance, while retaining the ability to
-         create the desired animations.</p>
+         create the desired animations.</span>
+         <span lang="fr">Pour le rigging, j'ai visé un rig avec le moins d'os possible pour maximiser les
+         performances en jeu, tout en gardant la possibilité de créer les animations voulues.</span></p>
     </div>
     <div class="f-media">
-      <img src="../assets/unit-industrial-warfare/07.jpg" alt="Maya rig of the unit" loading="lazy">
+      <img src="../assets/unit-industrial-warfare/07.jpg" alt="Maya rig of the unit" data-fr-alt="Rig de l'unité dans Maya" loading="lazy">
     </div>
   </div>
 
   <div class="feature" id="animation">
     <div class="f-text">
-      <div class="f-kicker">Step 05 · Maya</div>
+      <div class="f-kicker"><span lang="en">Step 05 · Maya</span><span lang="fr">Étape 05 · Maya</span></div>
       <h3 class="f-title">Animation</h3>
-      <p class="f-desc">I worked on front and side views, but primarily checked the
+      <p class="f-desc"><span lang="en">I worked on front and side views, but primarily checked the
          animation output in-game, specifically in the RTS view. The RTS view in the
          video is not zoomed in as much as in-game; the real camera is much more
-         distant.</p>
+         distant.</span>
+         <span lang="fr">J'ai travaillé sur les vues de face et de profil, mais j'ai surtout vérifié le
+         rendu des animations en jeu, en particulier dans la vue RTS. Dans la vidéo, la vue RTS est
+         plus rapprochée qu'en jeu&nbsp;: la vraie caméra est bien plus éloignée.</span></p>
       <details class="bp">
-        <summary>RTS view</summary>
+        <summary><span lang="en">RTS view</span><span lang="fr">Vue RTS</span></summary>
         <video controls preload="metadata" src="../assets/unit-industrial-warfare/vid-04.mp4"></video>
       </details>
     </div>
@@ -114,12 +135,15 @@
 
   <div class="feature flip" id="ingame">
     <div class="f-text">
-      <div class="f-kicker">Step 06 · Shipped</div>
-      <h3 class="f-title">Functional In-Game</h3>
-      <p class="f-desc">The unit integrated and functional in the game: selected,
+      <div class="f-kicker"><span lang="en">Step 06 · Shipped</span><span lang="fr">Étape 06 · Livré</span></div>
+      <h3 class="f-title"><span lang="en">Functional In-Game</span><span lang="fr">Fonctionnelle en jeu</span></h3>
+      <p class="f-desc"><span lang="en">The unit integrated and functional in the game: selected,
          ordered around, fighting. The end of the pipeline is a unit that plays, not
-         just a model that renders.</p>
-      <p class="f-desc" style="margin-top:1rem;">The game:
+         just a model that renders.</span>
+         <span lang="fr">L'unité intégrée et fonctionnelle dans le jeu&nbsp;: sélectionnée, déplacée sur
+         ordre, au combat. Le bout du pipeline, c'est une unité qui joue, pas seulement un modèle qui
+         s'affiche.</span></p>
+      <p class="f-desc" style="margin-top:1rem;"><span lang="en">The game:</span><span lang="fr">Le jeu&nbsp;:</span>
         <a href="https://www.creajeux.fr/project/industrialwarfare/" target="_blank" rel="noopener">Industrial Warfare (Créajeux)</a>.</p>
     </div>
     <div class="f-media">
@@ -129,11 +153,14 @@
 
   <!-- ============ RENDERS (payoff, en fin de page) ============ -->
   <section class="sec" id="renders">
-    <div class="sec-kicker">Payoff</div>
-    <h2>Final Renders</h2>
-    <p class="sec-desc">The finished unit rendered in Unreal Engine, in realtime lit
+    <div class="sec-kicker"><span lang="en">Payoff</span><span lang="fr">Résultat</span></div>
+    <h2><span lang="en">Final Renders</span><span lang="fr">Rendus finaux</span></h2>
+    <p class="sec-desc"><span lang="en">The finished unit rendered in Unreal Engine, in realtime lit
        mode, with a path-traced pass for reference. The concept was designed by
-       <a href="https://www.artstation.com/elhenium" target="_blank" rel="noopener">Alexandre Bédèche</a>.</p>
+       <a href="https://www.artstation.com/elhenium" target="_blank" rel="noopener">Alexandre Bédèche</a>.</span>
+       <span lang="fr">L'unité terminée, rendue dans Unreal Engine en mode Lit temps réel, avec une passe
+       en path tracing comme référence. Le concept a été dessiné par
+       <a href="https://www.artstation.com/elhenium" target="_blank" rel="noopener">Alexandre Bédèche</a>.</span></p>
     <div class="step-media">
       <video class="loop" muted loop playsinline preload="metadata" src="../assets/unit-industrial-warfare/vid-01.mp4"></video>
     </div>
@@ -143,21 +170,21 @@
         <figcaption>Unreal Engine · Path tracing</figcaption>
       </figure>
       <figure>
-        <img src="../assets/unit-industrial-warfare/10.jpg" alt="Unreal Engine render of the unit" loading="lazy">
-        <figcaption>Unreal Engine · Render</figcaption>
+        <img src="../assets/unit-industrial-warfare/10.jpg" alt="Unreal Engine render of the unit" data-fr-alt="Rendu de l'unité dans Unreal Engine" loading="lazy">
+        <figcaption><span lang="en">Unreal Engine · Render</span><span lang="fr">Unreal Engine · Rendu</span></figcaption>
       </figure>
     </div>
   </section>
 
   <a class="next-nav" href="wip-and-search.html" style="--nn-bg: url('../assets/as-search.jpg');">
-    <span class="nn-kicker">Next project</span>
-    <span class="nn-title">WIP and Search →</span>
+    <span class="nn-kicker"><span lang="en">Next project</span><span lang="fr">Projet suivant</span></span>
+    <span class="nn-title"><span lang="en">WIP and Search →</span><span lang="fr">WIP et recherches →</span></span>
   </a>
 
 </main>
 
 <footer>
-  Originally posted on <a href="https://www.artstation.com/artwork/elLdLZ" target="_blank" rel="noopener">ArtStation ↗</a> · © 2026 Steven
+  <span lang="en">Originally posted on</span><span lang="fr">Publié à l'origine sur</span> <a href="https://www.artstation.com/artwork/elLdLZ" target="_blank" rel="noopener">ArtStation ↗</a> · © 2026 Steven
 </footer>
 
 <script src="../theme/site.js"></script>

@@ -6,8 +6,10 @@
     stops des vignettes placeholder, marqués PLACEHOLDER. Voir docs/refacto_tokens_map.md.)
 
    SECTIONS — « cette partie sert pour ça » :
-     1. BASE ............ reset, fond du site (dégradé répété + damier), liens, h1 générique
-     2. NAV ............. barre du haut ; variantes .nav-home (accueil) / .nav-page (projets)
+     1. BASE ............ reset, fond du site (dégradé répété + damier), liens, h1 générique,
+                          masquage de la langue inactive (bilingue EN/FR, cf. i18n.js)
+     2. NAV ............. barre du haut ; variantes .nav-home (accueil) / .nav-page (projets) ;
+                          sélecteur de langue .lang-switch
      3. HERO ACCUEIL .... le plein-écran « STEVEN » + diaporama de fond + boutons .btn
      4. SECTIONS ACCUEIL  conteneurs de l'accueil + titres de section
      5. WORK GRID ....... les cartes projet de l'accueil (+ vignettes placeholder)
@@ -52,6 +54,11 @@ h1 {
   font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 800; letter-spacing: .03em; line-height: 1.1;
 }
+/* bilingue : chaque texte existe en deux exemplaires lang="en" / lang="fr" ; i18n.js pose la
+   langue choisie sur <html lang> et l'on masque l'autre. !important : doit l'emporter sur les
+   display des composants (.tag, .chip, .wip…). Sans JS, <html lang="en"> → la page reste en EN. */
+html[lang="fr"] [lang="en"],
+html:not([lang="fr"]) [lang="fr"] { display: none !important; }
 
 /* ============ 2. NAV ============ */
 nav {
@@ -87,6 +94,23 @@ nav .back {
   letter-spacing: .12em; text-transform: uppercase;
 }
 nav .back:hover { color: var(--accent); text-decoration: none; }
+/* sélecteur de langue EN / FR — DOM injecté par i18n.js en DERNIER enfant de la nav. La marge
+   auto groupe à droite « liens + sélecteur » (accueil) ou « ← Back + sélecteur » (posts). */
+nav.nav-home .links, nav.nav-page .back { margin-left: auto; }
+.lang-switch {
+  display: inline-flex; align-items: center; gap: .45rem;
+  margin-left: 1.8rem; padding-left: 1.4rem;
+  border-left: 1px solid var(--line-bright);
+  font-size: .85rem; letter-spacing: .12em; line-height: 1.6;
+}
+.lang-switch button {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; letter-spacing: inherit; color: var(--ink-dim);
+  transition: color .2s;
+}
+.lang-switch button:hover { color: var(--accent); }
+.lang-switch button[aria-pressed="true"] { color: var(--accent); cursor: default; }
+.lang-switch .ls-sep { color: var(--ink-faint); }
 
 /* ============ 3. HERO ACCUEIL ============ */
 .hero-home {
@@ -218,6 +242,29 @@ a.card:hover { text-decoration: none; }
 .about-text { max-width: 42rem; color: var(--ink-dim); font-size: 1.05rem; }
 .about-text strong { color: var(--ink); font-weight: 600; }
 .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+/* parcours façon CV (section #about, 27/10/2026) : expérience + formation | compétences, outils, langues */
+.cv { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem 4.5rem; margin-top: 3.2rem; }
+.cv-block + .cv-block { margin-top: 2.6rem; }
+.cv-h {
+  color: var(--accent); font-size: .78rem; font-weight: 400;
+  letter-spacing: var(--track-kicker); text-transform: uppercase; margin-bottom: 1rem;
+}
+.cv-item {
+  display: grid; grid-template-columns: 7rem 1fr; gap: 1.2rem;
+  padding: 1.05rem 0; border-top: 1px solid var(--line-panel);
+}
+.cv-h + .cv-item { border-top: 0; padding-top: .2rem; }
+.cv-when { color: var(--accent-2); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; padding-top: .3rem; }
+.cv-what h4 { font-size: 1.05rem; font-weight: 600; letter-spacing: .01em; color: var(--ink); }
+.cv-what h4 a { color: var(--ink); }
+.cv-what h4 a:hover { color: var(--accent); }
+.cv-org { color: var(--ink-dim); font-weight: 400; }
+.cv-sub { margin-top: .15rem; color: var(--ink-dim); font-size: .85rem; letter-spacing: .04em; }
+.cv-what p { margin-top: .45rem; color: var(--ink-dim); font-size: .92rem; }
+.cv .chips { justify-content: flex-start; margin-top: 0; }
+.cv-lang { list-style: none; color: var(--ink-dim); }
+.cv-lang li { padding: .3rem 0; }
+.cv-lang strong { color: var(--ink); font-weight: 600; }
 /* fondu du damier vers le bas : disparaît sur Contact + footer */
 #contact { background: linear-gradient(to bottom, transparent 0%, var(--bg) 80%); }
 
@@ -291,7 +338,8 @@ footer {
 }
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
 .duo figure { margin: 0; }
-.duo img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line-media); }
+.duo img, .duo video { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line-media); }
+.duo video { background: var(--media-fill); } /* sans largeur, une vidéo prend sa taille native et sort de l'écran (page RTS, corrigé 27/10) */
 .duo figcaption { margin-top: .5rem; color: var(--ink-dim); font-size: .85rem; letter-spacing: .08em; }
 /* features en zigzag (le bloc de base d'un post) */
 .feature {
@@ -538,8 +586,25 @@ details.bp .bp-duo img { width: 100%; border-radius: 8px; border: 1px solid var(
   .duo { grid-template-columns: 1fr; }
   .step-media.two { grid-template-columns: 1fr; }
   .more-card { flex-basis: 78vw; }
+  .cv { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   nav .links a { margin-left: 1rem; }
+  .lang-switch { margin-left: 1rem; padding-left: 1rem; }
+  /* accueil : DEUX rangées voulues — logo + EN/FR en haut, liens dessous (avant le 27/10 la ligne
+     se coupait d'elle-même sous 390 px, « Contact » tombant sous « Work ») */
+  nav.nav-home { flex-wrap: wrap; row-gap: .3rem; }
+  nav.nav-home .links { order: 3; flex-basis: 100%; margin-left: 0; }
+  nav.nav-home .links a:first-child { margin-left: 0; }
+  nav.nav-home .lang-switch { margin-left: auto; padding-left: 0; border-left: 0; }
+  /* le hero garde la place de la nav fixe (≈ 90 px en 2 rangées) : sans ça, sur un téléphone peu
+     haut (360×640, 375×667), le texte centré remonte SOUS la nav (mesuré 27/10 : −17 à −90 px) */
+  .hero-home { padding: 7rem 2rem 3rem; }
   body > section { padding: 4rem 1.2rem; }
+  .cv-item { grid-template-columns: 1fr; gap: .25rem; }
+}
+/* très petits écrans (≤ 340 px, ex. 320) : posts = logo + « ← Back » + EN/FR sur une ligne, resserrés */
+@media (max-width: 340px) {
+  .lang-switch { margin-left: .7rem; padding-left: .7rem; gap: .3rem; }
+  nav .logo { letter-spacing: .25em; }
 }

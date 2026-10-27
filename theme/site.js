@@ -1,6 +1,11 @@
 // site.js — comportements partagés du site. Chaque bloc est GARDÉ par la présence
 // de son point de montage : une page sans l'élément concerné n'exécute rien.
-// (La DA vit dans tokens.css ; les styles dans theme.css ; le panneau ⚙ dans devpanel.js.)
+// (La DA vit dans tokens.css ; les styles dans theme.css ; le panneau ⚙ dans devpanel.js ;
+//  la langue dans i18n.js.)
+
+// Texte généré en DEUX langues, selon la convention de i18n.js (la langue active est
+// affichée par theme.css). Sans version FR, ou identique : le texte EN seul, sans balise.
+const bi = (en, fr) => (fr && fr !== en) ? `<span lang="en">${en}</span><span lang="fr">${fr}</span>` : en;
 
 // Apparition des cartes au scroll (accueil : .card)
 (function () {
@@ -56,7 +61,7 @@
 
   const overlay = document.createElement('div');
   overlay.className = 'lightbox hidden';
-  overlay.innerHTML = '<button class="lb-close" aria-label="Fermer">×</button><div class="lb-stage"></div>';
+  overlay.innerHTML = '<button class="lb-close" aria-label="Close" data-fr-aria-label="Fermer">×</button><div class="lb-stage"></div>';
   document.body.appendChild(overlay);
   const stage = overlay.querySelector('.lb-stage');
 
@@ -99,17 +104,18 @@
 
 // Sélecteur « More projects » : remplace la carte next unique par un carrousel
 // de toutes les AUTRES fiches (miniature + titre), défilable. Source unique ici.
-// AJOUTER UN PROJET = une ligne dans PROJECTS (cf. docs/GUIDE_POSTS.md).
+// AJOUTER UN PROJET = une ligne dans PROJECTS (cf. docs/GUIDE_POSTS.md) ; titleFr / tagFr
+// = version française (facultatives : absentes, la carte reste en anglais dans les deux langues).
 (function () {
   const PROJECTS = [
     // realistic-character : retiré du site le 21/10 (brouillon local, cf. docs/BROUILLONS.md) ;
     // pas de miniature non plus → absent du carrousel « More projects ».
-    { slug: 'stellar-blade-eidos-port', title: 'Rebuilding Eidos 7', tag: 'Stellar Blade', thumb: 'as-stellar-blade-eidos-port.jpg' },
-    { slug: 'material-shader-study', title: 'Material & Shader Study', tag: 'Stellar Blade', thumb: 'as-shader.jpg' },
-    { slug: 'mabos-monster-process', title: "Mabo's Monster",          tag: 'Creature',      thumb: 'as-monster.jpg' },
-    { slug: 'sandbox-abandoned-school', title: 'Abandoned School',      tag: 'Environment',   thumb: 'as-school.jpg' },
-    { slug: 'unit-industrial-warfare', title: 'Unit · Industrial Warfare', tag: 'RTS',        thumb: 'as-rts.jpg' },
-    { slug: 'wip-and-search',       title: 'WIP and Search',            tag: 'R&D',           thumb: 'as-search.jpg' },
+    { slug: 'stellar-blade-eidos-port', title: 'Rebuilding Eidos 7', titleFr: 'Reconstruire Eidos 7', tag: 'Stellar Blade', thumb: 'as-stellar-blade-eidos-port.jpg' },
+    { slug: 'material-shader-study', title: 'Material & Shader Study', titleFr: 'Étude de matériaux et de shaders', tag: 'Stellar Blade', thumb: 'as-shader.jpg' },
+    { slug: 'mabos-monster-process', title: "Mabo's Monster", titleFr: 'Le monstre de Mabo', tag: 'Creature', tagFr: 'Créature', thumb: 'as-monster.jpg' },
+    { slug: 'sandbox-abandoned-school', title: 'Abandoned School', titleFr: 'École abandonnée', tag: 'Environment', tagFr: 'Environnement', thumb: 'as-school.jpg' },
+    { slug: 'unit-industrial-warfare', title: 'Unit · Industrial Warfare', titleFr: 'Unité · Industrial Warfare', tag: 'RTS', thumb: 'as-rts.jpg' },
+    { slug: 'wip-and-search',       title: 'WIP and Search', titleFr: 'WIP et recherches', tag: 'R&D', thumb: 'as-search.jpg' },
   ];
 
   const mount = document.querySelector('.next-nav');
@@ -126,16 +132,16 @@
   const section = document.createElement('section');
   section.className = 'more';
   section.innerHTML =
-    '<div class="more-head"><h2>More projects</h2>' +
+    `<div class="more-head"><h2>${bi('More projects', 'Autres projets')}</h2>` +
     '<div class="more-nav">' +
-    '<button class="more-arrow" data-dir="-1" aria-label="Précédent">‹</button>' +
-    '<button class="more-arrow" data-dir="1" aria-label="Suivant">›</button>' +
+    '<button class="more-arrow" data-dir="-1" aria-label="Previous" data-fr-aria-label="Précédent">‹</button>' +
+    '<button class="more-arrow" data-dir="1" aria-label="Next" data-fr-aria-label="Suivant">›</button>' +
     '</div></div>' +
     '<div class="more-track">' +
     others.map(p =>
       `<a class="more-card" href="${p.slug}.html" style="background-image:url('../assets/${p.thumb}')">` +
-      `<span class="mc-tag">${p.tag}</span>` +
-      `<span class="mc-title">${p.title}</span></a>`
+      `<span class="mc-tag">${bi(p.tag, p.tagFr)}</span>` +
+      `<span class="mc-title">${bi(p.title, p.titleFr)}</span></a>`
     ).join('') +
     '</div>';
 

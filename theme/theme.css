@@ -242,7 +242,7 @@ a.card:hover { text-decoration: none; }
 .about-text { max-width: 42rem; color: var(--ink-dim); font-size: 1.05rem; }
 .about-text strong { color: var(--ink); font-weight: 600; }
 .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-/* parcours façon CV (section #about, 27/10/2026) : expérience + formation | compétences, outils, langues */
+/* parcours façon CV (créé le 27/10/2026 dans #about, déménagé le 29/10 sur cv.html) : expérience + formation | compétences, outils, langues… */
 .cv { display: grid; grid-template-columns: 7fr 5fr; gap: 3rem 4.5rem; margin-top: 3.2rem; }
 .cv-block + .cv-block { margin-top: 2.6rem; }
 .cv-h {
@@ -265,6 +265,12 @@ a.card:hover { text-decoration: none; }
 .cv-lang { list-style: none; color: var(--ink-dim); }
 .cv-lang li { padding: .3rem 0; }
 .cv-lang strong { color: var(--ink); font-weight: 600; }
+/* page CV complète (cv.html, 29/10/2026) — source unique du CV ; l'accueil n'en garde qu'un résumé + .about-more.
+   Le PDF de candidature en est tiré par docs/candidature/render_cv.py (mise en page A4 : docs/candidature/cv-print.css) */
+.cv-head h1 { font-size: var(--fs-hero-p); text-transform: uppercase; letter-spacing: .05em; line-height: 1.05; }
+.cv-profile { margin-top: 1.4rem; }
+.cv-contact { margin-top: 4.5rem; padding-top: 2.4rem; border-top: 1px solid var(--line-panel); }
+.about-more { margin-top: 2rem; }
 /* fondu du damier vers le bas : disparaît sur Contact + footer */
 #contact { background: linear-gradient(to bottom, transparent 0%, var(--bg) 80%); }
 
@@ -607,4 +613,7 @@ details.bp .bp-duo img { width: 100%; border-radius: 8px; border: 1px solid var(
 @media (max-width: 340px) {
   .lang-switch { margin-left: .7rem; padding-left: .7rem; gap: .3rem; }
   nav .logo { letter-spacing: .25em; }
+  /* accueil en FR à 320 px : avec « CV » (29/10), « Projets · À propos · CV · Contact » passait sur 2 lignes
+     (nav de 115 px, hero recouvert de 3 px, mesuré) → liens resserrés */
+  nav.nav-home .links a { margin-left: .7rem; font-size: .78rem; letter-spacing: .06em; }
 }
